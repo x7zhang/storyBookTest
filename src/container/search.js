@@ -3,6 +3,7 @@ import SearchBar from '../components/searchBar';
 import DisplayResults from '../components/displayResults';
 import { connect } from 'react-redux';
 import { getResult } from '../store/redux';
+import PropTypes from 'prop-types';
 
 
 const SearchContainer = ({onGetResult, faq}) => {
@@ -22,6 +23,12 @@ const SearchContainer = ({onGetResult, faq}) => {
           <DisplayResults freq={faq}/>
         </div>
     );
+};
+
+SearchContainer.prototype = {
+    onGetResult: PropTypes.func.isRequired,
+    faq: PropTypes.object.isRequired,
+
 }
 
 export default connect(
